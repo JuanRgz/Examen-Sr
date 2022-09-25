@@ -8,9 +8,12 @@ import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import com.test.movie.R
+import com.test.movie.core.location.ImageName
 import com.test.movie.databinding.FragmentUploadImageBinding
 import com.test.movie.ui.common.BaseFragment
+import com.test.movie.ui.utils.toImageList
 
 class UploadImageFragment : BaseFragment<FragmentUploadImageBinding>() {
 
@@ -36,7 +39,15 @@ class UploadImageFragment : BaseFragment<FragmentUploadImageBinding>() {
     }
     override fun initElements() {
         viewModel.apply{
+            getImages{ list ->
+                if(list.isNotEmpty()){
+                    bind.rvImages.adapter = ImageAdapter(list.toImageList())
+                }else {
+                    Snackbar.make(requireView(), R.string.no_results, Snackbar.LENGTH_LONG).setAction("Cerrar"){
 
+                    }.show()
+                }
+            }
         }
     }
 

@@ -12,6 +12,18 @@
         android:layout_width="match_parent"
         tools:context=".ui.fragment.images.UploadImageFragment">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_images"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="9"
+            tools:listitem="@layout/item_movie"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/uploadImage"/>
+
         <Button
             android:id="@+id/uploadImage"
             android:layout_width="wrap_content"

@@ -13,7 +13,9 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.DocumentSnapshot
 import com.test.movie.core.App
+import com.test.movie.core.location.ImageName
 import com.test.movie.core.location.LocationService
 import java.io.*
 import java.text.SimpleDateFormat
@@ -64,4 +66,15 @@ fun getDate(): String {
 
 fun toMinutes(minutes: Int): Long {
     return 1000L * 60 * minutes
+}
+
+fun List<DocumentSnapshot>.toImageList(): List<ImageName> {
+    val result = this
+    val list = arrayListOf<ImageName>()
+    result.forEach { item ->
+        val name = item.data?.get("name") as String?
+        val extension = item.data?.get("url") as String?
+        list.add(ImageName(name ?: "", extension ?: ""))
+    }
+    return list
 }
