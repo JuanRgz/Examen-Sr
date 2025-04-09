@@ -1,13 +1,12 @@
 package com.development.cursoandroid.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
-import com.development.cursoandroid.R
 import com.development.cursoandroid.databinding.FragmentSegundoBinding
 
 
@@ -29,9 +28,11 @@ class SegundoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nombre = requireArguments().getString(MI_NOMBRE)
-        edad = requireArguments().getInt(MI_EDAD)
-        bind.txt.text = "$nombre $edad"
+        arguments?.let{ bundle ->
+            nombre = bundle.getString(MI_NOMBRE)
+            edad = bundle.getInt(MI_EDAD)
+            bind.txt.text = "$nombre $edad"
+        }
 
         bind.btnGo.setOnClickListener {
             val result = "Resultado"
