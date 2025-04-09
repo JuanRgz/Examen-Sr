@@ -1,0 +1,50 @@
+package com.development.cursoandroid.fragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import com.development.cursoandroid.R
+import com.development.cursoandroid.databinding.FragmentSegundoBinding
+
+
+class SegundoFragment : Fragment() {
+
+    private var nombre:String?=null
+    private var edad:Int?=null
+
+    private lateinit var bind: FragmentSegundoBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        bind = FragmentSegundoBinding.inflate(inflater, container, false)
+        return bind.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        nombre = requireArguments().getString(MI_NOMBRE)
+        edad = requireArguments().getInt(MI_EDAD)
+        bind.txt.text = "$nombre $edad"
+
+        bind.btnGo.setOnClickListener {
+            val result = "Resultado"
+            setFragmentResult("requestKey", bundleOf("bundleKey" to result))
+        }
+    }
+
+    companion object{
+        private const val MI_NOMBRE = "nombre"
+        private const val MI_EDAD = "edad"
+
+        fun newInstance(nombre: String, edad: Int) = SegundoFragment().apply {
+            arguments = bundleOf(MI_NOMBRE to nombre, MI_EDAD to edad)
+        }
+    }
+}
