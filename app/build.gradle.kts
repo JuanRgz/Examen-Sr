@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.safeargs)
 }
 
 android {
@@ -46,8 +47,9 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.fragment.ktx)
 
-    /*implementation(libs.androidx.navigation)
-    implementation(libs.navigation.fragment)*/
+    implementation(libs.retrofit)
+    implementation(libs.gson.converter)
+    implementation(libs.gson)
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)

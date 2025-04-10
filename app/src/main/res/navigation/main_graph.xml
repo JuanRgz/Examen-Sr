@@ -22,5 +22,19 @@
         android:id="@+id/segundoFragment"
         android:name="com.development.cursoandroid.fragments.SegundoFragment"
         android:label="fragment_segundo"
-        tools:layout="@layout/fragment_segundo" />
+        tools:layout="@layout/fragment_segundo" >
+        <argument
+            android:name="nombre"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="NO_NAME" />
+        <argument
+            android:name="edad"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_segundoFragment_to_product_graph"
+            app:destination="@id/product_graph" />
+    </fragment>
+    <include app:graph="@navigation/product_graph" />
 </navigation>

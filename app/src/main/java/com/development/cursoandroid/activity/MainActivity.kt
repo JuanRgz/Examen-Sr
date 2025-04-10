@@ -1,4 +1,4 @@
-package com.development.cursoandroid;
+package com.development.cursoandroid.activity;
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

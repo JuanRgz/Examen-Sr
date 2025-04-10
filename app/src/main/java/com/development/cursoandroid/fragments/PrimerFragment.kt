@@ -31,7 +31,8 @@ class PrimerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind.btnGo.setOnClickListener {
-            findNavController().navigate(R.id.action_primerFragment_to_segundoFragment, bundleOf("nombre" to "Juan Francisco", "edad" to 28))
+            val action = PrimerFragmentDirections.actionPrimerFragmentToSegundoFragment("Juan", 28)
+            findNavController().navigate(action)
         }
 
         setFragmentResultListener("requestKey"){ key, bundle ->
