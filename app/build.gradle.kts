@@ -51,6 +51,10 @@ dependencies {
     implementation(libs.gson.converter)
     implementation(libs.gson)
 
+    //LiveData
+    implementation(libs.viewmodel)
+    implementation(libs.livedata)
+
     implementation(libs.core.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
