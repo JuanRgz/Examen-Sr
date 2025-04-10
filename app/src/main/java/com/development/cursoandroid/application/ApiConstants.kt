@@ -1,4 +1,4 @@
-package com.development.cursoandroid.constants
+package com.development.cursoandroid.application
 
 object ApiConstants {
     const val API_KEY = "07e5a6b2c6af611ea395e43bc82c27c0"
