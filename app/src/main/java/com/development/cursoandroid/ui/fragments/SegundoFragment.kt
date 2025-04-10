@@ -1,4 +1,4 @@
-package com.development.cursoandroid.fragments
+package com.development.cursoandroid.ui.fragments
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.development.cursoandroid.R
 import com.development.cursoandroid.databinding.FragmentSegundoBinding
 
 

@@ -1,4 +1,4 @@
-package com.development.cursoandroid.fragments
+package com.development.cursoandroid.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

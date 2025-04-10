@@ -1,4 +1,4 @@
-package com.development.cursoandroid.fragments
+package com.development.cursoandroid.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.development.cursoandroid.R
-import com.development.cursoandroid.databinding.FragmentMovieBinding
 
-class MovieFragment : Fragment() {
-
-    lateinit var bind: FragmentMovieBinding
+class ProductFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        bind = FragmentMovieBinding.inflate(inflater, container, false)
-        return bind.root
+        return inflater.inflate(R.layout.fragment_product, container, false)
     }
 }

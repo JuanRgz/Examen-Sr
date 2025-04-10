@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/primerFragment"
-        android:name="com.development.cursoandroid.fragments.PrimerFragment"
+        android:name="com.development.cursoandroid.ui.fragments.PrimerFragment"
         android:label="fragment_primer"
         tools:layout="@layout/fragment_primer" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/segundoFragment"
-        android:name="com.development.cursoandroid.fragments.SegundoFragment"
+        android:name="com.development.cursoandroid.ui.fragments.SegundoFragment"
         android:label="fragment_segundo"
         tools:layout="@layout/fragment_segundo" >
         <argument

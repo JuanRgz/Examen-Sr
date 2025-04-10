@@ -1,4 +1,4 @@
-package com.development.cursoandroid.activity;
+package com.development.cursoandroid.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
