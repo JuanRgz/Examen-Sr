@@ -55,6 +55,12 @@ dependencies {
     implementation(libs.viewmodel)
     implementation(libs.livedata)
 
+    //Concat Adapter
+    implementation(libs.recyclerview)
+
+    //Glide
+    implementation(libs.glide)
+
     implementation(libs.core.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

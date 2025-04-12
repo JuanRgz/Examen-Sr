@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.development.cursoandroid.databinding.FragmentSegundoBinding
@@ -15,11 +17,8 @@ import com.development.cursoandroid.databinding.FragmentSegundoBinding
 
 class SegundoFragment : Fragment() {
 
-    private var nombre:String?=null
-    private var edad:Int?=null
-
     private lateinit var bind: FragmentSegundoBinding
-    val args: SegundoFragmentArgs by navArgs()
+    private val viewModel:MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,23 +31,15 @@ class SegundoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nombre = args.nombre
-        edad = args.edad
-        bind.txt.text = "$nombre $edad"
 
         bind.btnGo.setOnClickListener {
             val result = "Resultado"
             setFragmentResult("requestKey", bundleOf("bundleKey" to result))
             findNavController().navigate(Uri.parse("cursoandroid://card"))
         }
-    }
 
-    companion object{
-        private const val MI_NOMBRE = "nombre"
-        private const val MI_EDAD = "edad"
-
-        fun newInstance(nombre: String, edad: Int) = SegundoFragment().apply {
-            arguments = bundleOf(MI_NOMBRE to nombre, MI_EDAD to edad)
-        }
+        viewModel.getUser().observe(viewLifecycleOwner, Observer { user ->
+            bind.txt.text = "${user.nombre } ${user.edad }"
+        })
     }
 }

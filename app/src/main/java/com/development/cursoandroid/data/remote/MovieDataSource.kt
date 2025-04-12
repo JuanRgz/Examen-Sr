@@ -5,9 +5,9 @@ import com.development.cursoandroid.data.model.MovieList
 import com.development.cursoandroid.repository.WebService
 
 class MovieDataSource(private val webService: WebService) {
-    suspend fun getUpcomingMovies(): MovieList = webService.getUpcomingMovies(ApiConstants.API_KEY)
+    suspend fun getUpcomingMobvies(): MovieList = webService.getUpcomingMovies(ApiConstants.API_KEY, ApiConstants.LANGUAGE)
 
-    suspend fun getTopRatedMovies(): MovieList = webService.getTopRatedMovies(ApiConstants.API_KEY)
+    suspend fun getTopRatedMbovies(): MovieList = webService.getTopRatedMovies(ApiConstants.API_KEY, ApiConstants.LANGUAGE)
 
-    suspend fun getPopularMovies(): MovieList = webService.getPopularMovies(ApiConstants.API_KEY)
+    suspend fun getPopularMovies(): MovieList = webService.getPopularMovies(ApiConstants.API_KEY, ApiConstants.LANGUAGE)
 }

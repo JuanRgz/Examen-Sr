@@ -6,14 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.development.cursoandroid.R
 import com.development.cursoandroid.databinding.FragmentPrimerBinding
 
-
 class PrimerFragment : Fragment() {
+
+    private val viewModel: MainViewModel by activityViewModels()
 
     lateinit var bind: FragmentPrimerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +34,8 @@ class PrimerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind.btnGo.setOnClickListener {
-            val action = PrimerFragmentDirections.actionPrimerFragmentToSegundoFragment("Juan", 28)
-            findNavController().navigate(action)
+            viewModel.setUser(Usuario("juan Francisco", 28))
+            findNavController().navigate(R.id.action_primerFragment_to_segundoFragment)
         }
 
         setFragmentResultListener("requestKey"){ key, bundle ->
