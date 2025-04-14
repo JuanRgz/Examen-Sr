@@ -1,12 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.safeargs)
 }
 
 android {
     namespace = "com.development.cursoandroid"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.development.cursoandroid"
@@ -56,10 +57,18 @@ dependencies {
     implementation(libs.livedata)
 
     //Concat Adapter
-    implementation(libs.recyclerview)
+//    implementation(libs.recyclerview)
+    implementation(libs.androidx.recyclerview)
 
     //Glide
     implementation(libs.glide)
+
+    //Room
+    /*implementation(libs.bundles.room)
+    ksp(libs.room.compiler)*/
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    ksp(libs.androidx.room.compiler)
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
