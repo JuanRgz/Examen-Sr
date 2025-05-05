@@ -22,7 +22,7 @@ abstract class AppDatabase: RoomDatabase() {
             return INSTANCE!!
         }
 
-        fun destroyInstantee(){
+        fun destroyInstance(){
             INSTANCE = null
         }
     }

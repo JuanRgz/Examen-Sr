@@ -8,8 +8,6 @@ import com.google.gson.annotations.SerializedName
 data class Movie(
     val id: Int = -1,
     val adult: Boolean = false,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int> = listOf(),
     @SerializedName("backdrop_path")
     val backdropPath: String = "",
     @SerializedName("original_title")
@@ -27,7 +25,8 @@ data class Movie(
     @SerializedName("vote_average")
     val voteAverage: Double = -1.0,
     @SerializedName("vote_count")
-    val voteCount: Int = -1
+    val voteCount: Int = -1,
+    val movie_type: String = ""
 )
 
 data class MovieList(val results: List<Movie> = listOf())
@@ -60,5 +59,49 @@ data class MovieEntity(
     @ColumnInfo(name = "vote_average")
     val voteAverage: Double = -1.0,
     @ColumnInfo(name = "vote_count")
-    val voteCount: Int = -1
+    val voteCount: Int = -1,
+    @ColumnInfo(name = "movie_type")
+    val movie_type: String = ""
+)
+
+fun List<MovieEntity>.toMovieList(): MovieList{
+    val resultList = mutableListOf<Movie>()
+    this.forEach { moveEntity ->
+        resultList.add(moveEntity.toMovie())
+    }
+    return MovieList(resultList)
+}
+
+fun MovieEntity.toMovie(): Movie = Movie(
+    this.id,
+    this.adult,
+    this.backdropPath,
+    this.originalTitle,
+    this.originalLanguage,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+    this.movie_type
+)
+
+fun Movie.toMovieEntity(movieType: String): MovieEntity = MovieEntity(
+    this.id,
+    this.adult,
+    this.backdropPath,
+    this.originalTitle,
+    this.originalLanguage,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+    movie_type = movieType
 )

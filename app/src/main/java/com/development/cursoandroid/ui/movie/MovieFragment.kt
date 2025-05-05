@@ -1,7 +1,6 @@
 package com.development.cursoandroid.ui.movie
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +10,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.development.cursoandroid.core.Resource
+import com.development.cursoandroid.data.local.AppDatabase
+import com.development.cursoandroid.data.local.LocalMovieDataSource
 import com.development.cursoandroid.data.model.Movie
-import com.development.cursoandroid.data.remote.MovieDataSource
+import com.development.cursoandroid.data.remote.RemoteMovieDataSource
 import com.development.cursoandroid.databinding.FragmentMovieBinding
 import com.development.cursoandroid.presentation.MovieViewModel
 import com.development.cursoandroid.presentation.MovieViewModelFactory
 import com.development.cursoandroid.repository.MovieRepositoryImpl
 import com.development.cursoandroid.repository.RetrofitClient
-import com.development.cursoandroid.repository.WebService
 import com.development.cursoandroid.ui.movie.adapters.concat.MovieAdapter
 import com.development.cursoandroid.ui.movie.adapters.concat.PopularConcatAdapter
 import com.development.cursoandroid.ui.movie.adapters.concat.TopRatedConcatAdapter
@@ -30,7 +30,8 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener {
     private lateinit var concatAdapter: ConcatAdapter
 
     private val viewModel by viewModels<MovieViewModel> { MovieViewModelFactory(MovieRepositoryImpl(
-        MovieDataSource(RetrofitClient.webservice)
+        RemoteMovieDataSource(RetrofitClient.webservice),
+        LocalMovieDataSource(AppDatabase.getDatabase(requireContext()).movieDao())
     )) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
