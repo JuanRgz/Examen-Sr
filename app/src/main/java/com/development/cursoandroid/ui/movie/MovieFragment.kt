@@ -64,6 +64,9 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener {
                 }
             }
         })
+        bind.btnFirestore.setOnClickListener {
+            findNavController().navigate(MovieFragmentDirections.actionMovieFragmentToFirebaseGraph())
+        }
         bind.btnFragment.setOnClickListener {
             findNavController().navigate(MovieFragmentDirections.actionMovieFragmentToMainGraph())
         }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435335875033",
+    "project_id": "blogapp-18449",
+    "storage_bucket": "blogapp-18449.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435335875033:android:782b89d0d9069a4ae1b1c8",
+        "android_client_info": {
+          "package_name": "com.development.cursoandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8iAFgdoAEXR3kvY8gLhsl-jLjxELJYAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

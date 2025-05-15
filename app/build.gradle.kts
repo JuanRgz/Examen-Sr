@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.safeargs)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -68,6 +69,7 @@ dependencies {
     ksp(libs.room.compiler)*/
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
+    implementation(libs.firebase.firestore)
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.core.ktx)

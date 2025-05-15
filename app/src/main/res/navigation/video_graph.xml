@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_movieFragment_to_main_graph"
             app:destination="@id/main_graph" />
+        <action
+            android:id="@+id/action_movieFragment_to_firebase_graph"
+            app:destination="@id/firebase_graph" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -46,4 +49,5 @@
             app:argType="string" />
     </fragment>
     <include app:graph="@navigation/main_graph" />
+    <include app:graph="@navigation/firebase_graph" />
 </navigation>

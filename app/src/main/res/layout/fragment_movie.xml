@@ -32,6 +32,15 @@
         android:text="Fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_firestore"/>
+
+    <Button
+        android:id="@+id/btn_firestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firestore"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_fragment"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
